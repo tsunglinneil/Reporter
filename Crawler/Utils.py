@@ -36,6 +36,7 @@ class FileUtils:  # create FileUtils class
     # 產生聲音檔(含檢查作業系統) => 其實也可以作為static method，但在此練習class method
     def generate_sound(self, report):
         folder = "Sound"
+        path = "{}/NBAReporter.mp3".format(folder)
 
         self.check_and_create(folder)
 
@@ -47,10 +48,10 @@ class FileUtils:  # create FileUtils class
         # 判斷當前作業系統
         sys_nm = os.name
         if sys_nm == "nt":  # os: windows
-            webbrowser.open("NBAReporter.mp3")
+            webbrowser.open(path)
         elif sys_nm == "posix":  # os: linus or maxos
             chrome_path = 'open -a /Applications/Google\ Chrome.app %s'  # 指定webbrower使用Chrome開啟檔案
-            webbrowser.get(chrome_path).open("{}/NBAReporter.mp3".format(folder))
+            webbrowser.get(chrome_path).open(path)
 
 # ========= Test class code =========
 # fileUtil = FileUtils(1,2)
