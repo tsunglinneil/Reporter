@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ad22982-8f80-42a3-b067-8aed2d4ca9a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/Leveldbutil.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/Sound/NBAReporter.mp3" afterPath="$PROJECT_DIR$/Crawler/Sound/NBAReporter.mp3" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/nbaDB/000077.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/nbaDB/MANIFEST-000075" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/000005.ldb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/000029.ldb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/000031.ldb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/000038.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/CURRENT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/LOCK" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/LOG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/LOG.old" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test/MANIFEST-000037" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/000013.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/CURRENT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/LOCK" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/LOG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/LOG.old" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crawler/test_all.db/MANIFEST-000012" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/Main.py" afterPath="$PROJECT_DIR$/Crawler/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/nbaDB/CURRENT" afterPath="$PROJECT_DIR$/Crawler/nbaDB/CURRENT" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/nbaDB/LOG" afterPath="$PROJECT_DIR$/Crawler/nbaDB/LOG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/nbaDB/LOG.old" afterPath="$PROJECT_DIR$/Crawler/nbaDB/LOG.old" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +35,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/NBAReporter$Utils.coverage" NAME="Utils Coverage Results" MODIFIED="1510281433603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NBAReporter$NBAReporter.coverage" NAME="NBAReporter Coverage Results" MODIFIED="1510286174373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NBAReporter$Main.coverage" NAME="Main Coverage Results" MODIFIED="1511964982793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler" />
+    <SUITE FILE_PATH="coverage/NBAReporter$Main.coverage" NAME="Main Coverage Results" MODIFIED="1511965467450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler" />
     <SUITE FILE_PATH="coverage/NBAReporter$Unittests_for_NBAReporter_testDataContent.coverage" NAME="Unittests for NBAReporter.testDataContent Coverage Results" MODIFIED="1509851501690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NBAReporter$Unittests_in_NBAReporter_py.coverage" NAME="Unittests in NBAReporter.py Coverage Results" MODIFIED="1510280006093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NBAReporter$test.coverage" NAME="test Coverage Results" MODIFIED="1510280335347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -51,7 +68,7 @@
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crawler/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="294">
               <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding>
                 <element signature="e#30#40#0" expanded="true" />
@@ -64,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/Crawler/Leveldbutil.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="393">
-              <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+              <caret line="72" column="26" lean-forward="false" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -896,7 +913,7 @@
       <workItem from="1511403309654" duration="5000" />
       <workItem from="1511877173988" duration="158000" />
       <workItem from="1511919981331" duration="2000" />
-      <workItem from="1511957591350" duration="5824000" />
+      <workItem from="1511957591350" duration="6190000" />
     </task>
     <servers />
   </component>
@@ -933,7 +950,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35552000" />
+    <option name="totallyTimeSpent" value="35918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1420,14 +1437,14 @@
     <entry file="file://$PROJECT_DIR$/Crawler/Leveldbutil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
-          <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <caret line="72" column="26" lean-forward="false" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="294">
           <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
             <element signature="e#30#40#0" expanded="true" />
