@@ -73,3 +73,25 @@ def dump(db):
         print ("Key: {} \nValue: [\n{}\n]".format(key_s, value_s))
         print()
     print("=========END   DUMP ALL DATA RECORD==========")
+
+
+# 一次性更新或寫入所有異動
+# 1.產生WriteBatch
+def init_batch():
+    return leveldb.WriteBatch()
+
+
+# 2.紀錄更新或新增資料
+def write_batch(batch, key, value):
+    key_b, name_b = cvt_b(key, value)
+    batch.Put(key_b, name_b)
+
+
+# 3.刪除特定資料
+def delete_batch(batch, key):
+    key_b = cvt_to_bytes(key)
+    batch.Delete(key_b)
+
+# 3.確認更新或寫入
+def commit_batch(db, batch):
+    db.Write(batch, sync=True)

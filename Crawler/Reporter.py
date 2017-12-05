@@ -75,8 +75,8 @@ def reporter(scope_data):
             report_msg = "{}\n{}".format(report_msg, detail_msg)
 
         report_msg = "{}\n{}\n{}".format(title, report_msg, end)
-        print(report_msg)
-        print("="*100)
+        # print(report_msg)
+        # print("="*100)
 
     return report_msg
 
