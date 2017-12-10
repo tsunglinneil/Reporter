@@ -1,4 +1,5 @@
 import leveldb
+import array
 
 
 # converting functions
@@ -10,6 +11,8 @@ def cvt_to_bytes(string):
     # return string.encode('ascii')  # 中文不在其可編碼範圍
     return string.encode()  # The default encoding for Python source code is UTF-8
 
+def cvt_list_to_bytes(datas):
+    return bytearray(datas, 'utf-8')
 
 def cvt_to_string(bytestring):
     # leave type check for system exceptions

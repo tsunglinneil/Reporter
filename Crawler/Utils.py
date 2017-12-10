@@ -21,6 +21,9 @@ class FileUtils:  # create FileUtils class
     #     self.test1 = test1
     #     self.test2 = test2
 
+    folder = "Sound"
+    path = "{}/NBAReporter.mp3".format(folder)
+
     # 檢查並新增資料夾 (由於不需要instance相關變數or物件，所以考慮作為static function)
     def check_and_create(self, folder_name):
         check_dir = folder_name
@@ -33,26 +36,37 @@ class FileUtils:  # create FileUtils class
             os.makedirs(check_dir)  # Creates a new dir for the given name
             print("Directory created for " + check_dir)
 
+
     # 產生聲音檔(含檢查作業系統) => 其實也可以作為static method，但在此練習class method
     def generate_sound(self, report):
-        folder = "Sound"
-        path = "{}/NBAReporter.mp3".format(folder)
-
-        self.check_and_create(folder)
+        self.check_and_create(self.folder)
 
         # get path
         print(os.getcwd())
         tts = gTTS(text=report, lang='zh')
-        tts.save("{}/{}/NBAReporter.mp3".format(os.getcwd(), folder))
+        tts.save("{}/{}/NBAReporter.mp3".format(os.getcwd(), self.folder))
 
+    # 播放聲音檔
+    def play_sound(self):
         # 判斷當前作業系統
         sys_nm = os.name
         if sys_nm == "nt":  # os: windows
-            webbrowser.open(path)
+            webbrowser.open(self.path)
         elif sys_nm == "posix":  # os: linus or maxos
             chrome_path = 'open -a /Applications/Google\ Chrome.app %s'  # 指定webbrower使用Chrome開啟檔案
-            webbrowser.get(chrome_path).open(path)
+            webbrowser.get(chrome_path).open(self.path)
 
+
+    # test file
+    def file_test(self):
+        folder = "Sound"
+        path = "{}/NBAReporter.mp3".format(folder)
+
+        with open(path, 'r') as f:
+            read_data = f.read()
+
+        print(type(read_data))
+        print(read_data)
 # ========= Test class code =========
 # fileUtil = FileUtils(1,2)
 # print(fileUtil.test1)
