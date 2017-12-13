@@ -1,6 +1,5 @@
 # coding=utf-8
 # import class
-import sys
 from Crawler import Reporter, Utils, Leveldbutil
 from flask import Flask, render_template, stream_with_context
 from datetime import datetime
