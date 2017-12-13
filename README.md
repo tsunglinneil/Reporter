@@ -5,3 +5,4 @@
 * 提供MP3下載功能
 * 即時播報功能
 * 使用LevelDB紀錄即時資訊(以時間為單位)
+* Flask-Bootstrap 測試(pip3 install flask-bootstrap)
