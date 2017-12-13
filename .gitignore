@@ -1,3 +1,7 @@
 .idea/*
 nbaDb/
 Sound/*
+env
+*.iml
+Sound/*.mp3
+.vscode
