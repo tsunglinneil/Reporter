@@ -3,6 +3,7 @@
 from datetime import datetime
 
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
 
@@ -18,6 +19,11 @@ app = Flask(__name__)  #define app using flask
 @app.route('/index', methods=['GET', 'POST'])
 def nba_reporter():
     return render_template("index.html")
+
+# Flask-Bootstrap test...
+@app.route('/base')
+def base():
+    return render_template("base.html")
 
 
 @app.route('/list', methods=['POST'])
@@ -58,7 +64,7 @@ def list():
         Leveldbutil.commit_batch(db, batch)
 
         # Get test data
-        get_batch_test_data()
+        get_batch_test_data(db)
 
         # Delete test data (批次刪除）
         Leveldbutil.delete_batch(batch, 'hello')
@@ -96,7 +102,8 @@ def get_batch_test_data(db):
     try:
         print('Get batch data => {} and {}'.format(Leveldbutil.search(db, 'hello'), Leveldbutil.search(db, 'hello again')))
     except:
-        print('Get batch data error')
+        print('Get batch data error..')
 
 def start():
+    Bootstrap(app)
     app.run(debug=True, port=8080)
