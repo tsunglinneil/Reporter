@@ -44,7 +44,7 @@ class FileUtils:  # create FileUtils class
         # get path
         print(os.getcwd())
         tts = gTTS(text=report, lang='zh')
-        tts.save("{}/{}/NBAReporter.mp3".format(os.getcwd(), self.folder))
+        tts.save("{}".format(self.path))
 
     # ºΩ©Ò¡n≠µ¿…
     def play_sound(self):
