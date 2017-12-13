@@ -1,14 +1,15 @@
+# coding=utf-8
 import leveldb
 import array
 
 
 # converting functions
-# »Ý­nconverting functionsªº²z¥Ñ¡G(©x¤è¤å¥ó´y­z)
+# ï¿½Ý­nconverting functionsï¿½ï¿½ï¿½zï¿½Ñ¡G(ï¿½xï¿½ï¿½ï¿½ï¿½yï¿½z)
 # Links : https://github.com/google/leveldb/blob/master/doc/index.md
 # Reason: The leveldb library provides a persistent key value store. Keys and values are arbitrary byte arrays.
 def cvt_to_bytes(string):
     # leave type check for system exceptions
-    # return string.encode('ascii')  # ¤¤¤å¤£¦b¨ä¥i½s½X½d³ò
+    # return string.encode('ascii')  # ï¿½ï¿½ï¿½å¤£ï¿½bï¿½ï¿½iï¿½sï¿½Xï¿½dï¿½ï¿½
     return string.encode()  # The default encoding for Python source code is UTF-8
 
 def cvt_list_to_bytes(datas):
@@ -78,23 +79,23 @@ def dump(db):
     print("=========END   DUMP ALL DATA RECORD==========")
 
 
-# ¤@¦¸©Ê§ó·s©Î¼g¤J©Ò¦³²§°Ê
-# 1.²£¥ÍWriteBatch
+# ï¿½@ï¿½ï¿½ï¿½Ê§ï¿½sï¿½Î¼gï¿½Jï¿½Ò¦ï¿½ï¿½ï¿½ï¿½ï¿½
+# 1.ï¿½ï¿½ï¿½ï¿½WriteBatch
 def init_batch():
     return leveldb.WriteBatch()
 
 
-# 2.¬ö¿ý§ó·s©Î·s¼W¸ê®Æ
+# 2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½Î·sï¿½Wï¿½ï¿½ï¿½
 def write_batch(batch, key, value):
     key_b, name_b = cvt_b(key, value)
     batch.Put(key_b, name_b)
 
 
-# 3.§R°£¯S©w¸ê®Æ
+# 3.ï¿½Rï¿½ï¿½ï¿½Sï¿½wï¿½ï¿½ï¿½
 def delete_batch(batch, key):
     key_b = cvt_to_bytes(key)
     batch.Delete(key_b)
 
-# 3.½T»{§ó·s©Î¼g¤J
+# 3.ï¿½Tï¿½{ï¿½ï¿½sï¿½Î¼gï¿½J
 def commit_batch(db, batch):
     db.Write(batch, sync=True)
