@@ -6,8 +6,7 @@ from flask import Flask, render_template
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
 
-import Leveldbutil
-from Crawler import Reporter, Utils
+import Leveldbutil, Reporter, Utils
 
 # Hint doc:
 # datetime in python : https://docs.python.org/3/library/datetime.html#datetime-objects
