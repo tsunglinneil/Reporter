@@ -15,8 +15,14 @@
             <tr>
                 <td>
                     <input type="button" id="list" value="取得最新賽況" />
-                    <input type="button" id="download" value="下載MP3檔案" />
+                    <input type="button" id="download" value="下載MP3檔案(一)" />
                     <input type="button" id="index" value="回首頁" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a download="NBAReporter.mp3" href="{{ url_for('downloadfile', filename='NBAReporter.mp3') }}">下載MP3檔案(二)</a>
+                    <a href="{{ url_for('player', filename='NBAReporter.mp3') }}" target="_blank">線上播放MP3</a>
                 </td>
             </tr>
         </table>
