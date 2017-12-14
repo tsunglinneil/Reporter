@@ -6,3 +6,15 @@
 * 即時播報功能
 * 使用LevelDB紀錄即時資訊(以時間為單位)
 * Flask-Bootstrap 測試(pip3 install flask-bootstrap)
+
+### 執行
+* 建立虛擬環境(mac):
+    * 若無virtualenv module : pip3 install virtualenv
+    * 建立virtualenv : virtualenv env
+    * 啟動virtualenv : source env/bin/activate
+    
+* 安裝所需套件:
+    * pip3 install -r requirements.txt
+    
+* 執行主程式:
+    * python3 Main.py
