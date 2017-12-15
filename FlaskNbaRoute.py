@@ -88,8 +88,8 @@ def generate():
 # 下載MP3檔案(二)
 @app.route('/download_file/<path:filename>', methods=['GET', 'POST'])
 def download_file(filename):
-    uploads = "{}/".format(Utils.FileUtils().folder)
-    return send_from_directory(directory=uploads, filename=filename)
+    path = "{}/".format(Utils.FileUtils().folder)
+    return send_from_directory(directory=path, filename=filename)
 
 
 # 線上播放MP3
