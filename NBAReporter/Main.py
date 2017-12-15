@@ -1,5 +1,5 @@
 # coding=utf-8
-from NBAReporter import FlaskNbaRoute
+import FlaskNbaRoute
 
 # ============== Main ==============
 FlaskNbaRoute.start()

@@ -2,13 +2,11 @@
 # import class
 from datetime import datetime
 
-import Reporter
+import Reporter, Utils, Leveldbutil
 from flask import Flask, render_template, send_from_directory
 from flask_bootstrap import Bootstrap
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
-
-from NBAReporter import Utils, Leveldbutil
 
 # Hint doc: datetime Module使用說明參考官方文件
 # datetime in python : https://docs.python.org/3/library/datetime.html#datetime-objects
@@ -81,7 +79,9 @@ def download():
 # 1. 使用yield會將目前的函式看作是iterator(迭代器)
 # 2. yield就像是return返回一個值(yield 右邊的值)，並且記住這個返回的位置，下次iterator就從這個位置後(下一行)開始
 def generate():
-    with open("Sound/NBAReporter.mp3", "rb") as music:
+    # open("path") 說明:
+    # file open 會直接從專案根目錄底下尋找路徑，故無須指定回上一層目錄
+    with open("{}".format(Utils.FileUtils.path), "rb") as music:
         data = music.read(1024)
         while data:
             yield data
@@ -91,15 +91,19 @@ def generate():
 # 下載MP3檔案(二)
 @app.route('/download_file/<path:filename>', methods=['GET', 'POST'])
 def download_file(filename):
-    path = "{}/".format(Utils.FileUtils().folder)
+    # path 說明:
+    # 指定取得目錄中的檔案，由於有建立Python Package，所以需指定回上一層目錄
+    path = "../{}/".format(Utils.FileUtils().folder)
     return send_from_directory(directory=path, filename=filename)
 
 
 # 線上播放MP3
 @app.route('/player/<path:filename>', methods=['GET', 'POST'])
 def player(filename):
-    uploads = "Sound/"
-    return send_from_directory(directory=uploads, filename=filename)
+    # path 說明:
+    # 指定取得目錄中的檔案，由於有建立Python Package，所以需指定回上一層目錄
+    path = "../{}/".format(Utils.FileUtils().folder)
+    return send_from_directory(directory=path, filename=filename)
 
 
 def start():
