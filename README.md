@@ -13,8 +13,9 @@
     * 建立virtualenv : virtualenv env
     * 啟動virtualenv : source env/bin/activate
     
-* 安裝所需套件:
-    * pip3 install -r requirements.txt
+* 安裝所需套件(2 ways)擇一執行(建議安裝到虛擬環境，故須先啟用虛擬環境):
+    1. python3 setup.py install
+    2. pip3 install -r requirements.txt
     
 * 執行主程式:
     * python3 Main.py
