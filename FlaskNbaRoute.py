@@ -86,9 +86,9 @@ def generate():
 
 
 # 下載MP3檔案(二)
-@app.route('/downloadfile/<path:filename>', methods=['GET', 'POST'])
-def downloadfile(filename):
-    uploads = "Sound/"
+@app.route('/download_file/<path:filename>', methods=['GET', 'POST'])
+def download_file(filename):
+    uploads = "{}/".format(Utils.FileUtils().folder)
     return send_from_directory(directory=uploads, filename=filename)
 
 
