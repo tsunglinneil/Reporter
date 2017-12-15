@@ -1,3 +1,6 @@
+#  An issue with setuptools when you want to install_requires with flask,
+# you have to set version ==> 'flask>=0.12.2'
+
 from setuptools import setup
 
 setup(
@@ -8,7 +11,7 @@ setup(
         'requests',
         'gtts',
         'bs4',
-        'flask',
+        'flask>=0.12.2',
         'leveldb',
         'flask-bootstrap'
     ],
