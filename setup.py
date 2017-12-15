@@ -1,11 +1,15 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
-    name = 'NBAReporter',
-    scripts = ['Main'],
-    version = '1.0',
-    description = 'Get NBA competition data',
-    author = 'tsunglin.ken',
-    keywords = ['NBA Reporter'],
-    classifiers = [],
+    name='NBAReporter',
+    packages=['NBAReporter'],
+    include_package_data=True,
+    install_requires=[
+        'requests',
+        'gtts',
+        'bs4',
+        'flask',
+        'leveldb',
+        'flask-bootstrap'
+    ],
 )

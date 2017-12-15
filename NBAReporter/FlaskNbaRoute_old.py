@@ -2,12 +2,13 @@
 # import class
 from datetime import datetime
 
+import Reporter
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from werkzeug.datastructures import Headers
 from werkzeug.wrappers import Response
 
-import Leveldbutil, Reporter, Utils
+from NBAReporter import Utils, Leveldbutil
 
 # Hint doc:
 # datetime in python : https://docs.python.org/3/library/datetime.html#datetime-objects
