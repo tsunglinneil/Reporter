@@ -18,4 +18,17 @@ $(function() {
         form.attr('action', 'index');
         form.submit();
     });
+
+    // $("#download2").click(function () {
+    //     console.log("Go to index ...")
+    //     form.attr('action', 'index');
+    //     form.submit();
+    // });
+    //
+    // $("#play").click(function () {
+    //     console.log("Go to index ...")
+    //     form.attr('action', 'index');
+    //     form.submit();
+    // });
+
 });

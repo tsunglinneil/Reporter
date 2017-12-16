@@ -40,7 +40,7 @@ class FileUtils:  # create FileUtils class
     # 產生聲音檔(含檢查作業系統) => 其實也可以作為static method，但在此練習class method
     def generate_sound(self, report):
         self.check_and_create(self.folder)
-
+        # print("Data: {}".format(report))
         # get path
         print(os.getcwd())
         tts = gTTS(text=report, lang='zh')

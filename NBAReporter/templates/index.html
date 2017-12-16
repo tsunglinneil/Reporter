@@ -2,35 +2,36 @@
 
 {% block title %}NBA即時賽事 - 取得最新賽況{% endblock %}
 
-{% block content %}
-    <h2>Welcome to NBA Game .</h2>
-    
-    <form action="list" id="form" enctype="multipart/form-data" method="post">
-        <table>
-            <tr>
-                <td>
-                    <textarea id="reportData" style="width:250px;height:500px;">{{reportData}}</textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="button" id="list" value="取得最新賽況" />
-                    <input type="button" id="download" value="下載MP3檔案(一)" />
-                    <input type="button" id="index" value="回首頁" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a download="NBAReporter.mp3" href="{{ url_for('download_file', filename='NBAReporter.mp3') }}">下載MP3檔案(二)</a>
-                    <a href="{{ url_for('player', filename='NBAReporter.mp3') }}" target="_blank">線上播放MP3</a>
-                </td>
-            </tr>
-        </table>
-    </form>
-    {% endblock %}
-
 {% block scripts %}
 <script src="static/js/thirdParty/jquery-3.2.1.min.js"></script>
 <script src="static/js/reporter/reporter.js"></script>
 {{super()}}
+{% endblock %}
+
+{% block content %}
+<h2>Welcome to NBA Game .</h2>
+
+<form action="list" id="form" enctype="multipart/form-data" method="post">
+    <input type="hidden" id="time" name="time" value="{{ report_data['time'] }}">
+    <table>
+        <tr>
+            <td>
+                <textarea id="reportData" style="width:250px;height:500px;">{{ report_data['report'] }}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="list" value="取得最新賽況" />
+                <input type="button" id="download" value="下載MP3檔案(一)" />
+                <input type="button" id="index" value="回首頁" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a id="download2" download href="{{ url_for('upload', filename='NBAReporter.mp3') }}" target="_blank">下載MP3檔案(二)</a>
+                <a id="paly" href="{{ url_for('player', filename='NBAReporter.mp3') }}" target="_blank">線上播放MP3</a>
+            </td>
+        </tr>
+    </table>
+</form>
 {% endblock %}
