@@ -1,1 +1,1 @@
-web: gunicorn NBAReporter.Main
+web: gunicorn NBAReporter:Main
