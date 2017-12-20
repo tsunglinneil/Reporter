@@ -159,4 +159,4 @@ def start():
     # 解決方式1: 既然啟用debug mode會進行reload，那可以將debug mode設為false，此時將levedb.init()寫在最外層就沒有問題。
     # 解決方式2: 通常還是建議啟用debug mode，故只要把leveldb.init()的動作與啟用server (app.run)的動作區隔開即可，例如：寫在route內
     # 解決方式3: 建立資料庫物件寫在@app.before_first_request，並在外宣告一個全域變數
-    app.run(debug=True, port=8080)  # run
+    app.run()  # run
