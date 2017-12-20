@@ -1,6 +1,7 @@
 .idea/*
 nbaDb/
-Sound/*
+*/Sound
+*/__pycache__
 env
 *.iml
 Sound/*.mp3
