@@ -1,1 +1,1 @@
-web: gunicorn NBAReporter.FlaskNbaRoute
+web: gunicorn NBAReporter.FlaskNbaRoute:app
