@@ -13,6 +13,15 @@ from werkzeug.wrappers import Response, Request
 # datetime strftime() and strptime() : https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
 
 app = Flask(__name__)  # define app using flask
+db = None
+
+# 在執行第一個Request之前預先執行
+@app.before_first_request
+def activate_job():
+    print("activate_job")
+    # 建立或取得資料庫
+    global db  # 若要在函示內取得全域變數必須加上 global
+    db = Leveldbutil.init("nbaDB")
 
 
 # Flask-Bootstrap test...
@@ -25,18 +34,13 @@ def base():
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def nba_reporter():
-    # 建立或取得資料庫
-    db = Leveldbutil.init("nbaDB")
-
     return render_template("index.html", report_data={})
 
 
 # 列出NBA即時資訊(爬蟲結果)
 @app.route('/list', methods=['POST'])
 def list_data():
-    # 建立或取得資料庫
-    db = Leveldbutil.init("nbaDB")
-
+    global db
     # 即時賽事資料來源
     url = "http://sports.ltn.com.tw/nba"
 
@@ -64,9 +68,8 @@ def list_data():
 
 # 從DB取得此次即時賽事資訊並匯出音檔
 def get_report_by_key(key):
+    global db
     print("key===> {}".format(key))
-    # 建立或取得資料庫
-    db = Leveldbutil.init("nbaDB")
 
     try:
         # create FileUtils object
@@ -89,6 +92,13 @@ def generate():
         while data:
             yield data
             data = music.read(1024)
+
+def generate2():
+    # open("path") 說明:
+    # file open 會直接從專案根目錄底下尋找路徑，故無須指定回上一層目錄
+    with open("{}".format(Utils.FileUtils.path), "rb") as music:
+        data = music.read()
+    return data
 
 
 # 下載MP3檔案(一) => 依據key取得Report內容，再產生MP3
@@ -132,4 +142,21 @@ def player(filename):
 
 def start():
     Bootstrap(app)   # using flask bootstrap
+    # 針對Debug設定做說明：
+    # debug=True  表示每次有異動python code都會重新reload並攔截發生的錯誤
+    # debug=False 則不會進行上述動作
+    #
+    # 重點細節: 當debug=True時，會啟用Reloader，Flask中有引用WSGI協定(werkzeug)，其中共有兩種Reloader(stat and watchdog)，如果
+    # 有安裝watchdog則優先使用watchdog。
+    #
+    # 在此例中app.run 啟用了debug mode，並執行run_simple方法，故會去執行run_with_reloader方法使用預設的stat reloader交由subprocess
+    # 做重啟的動作(reloader中的restart_with_reloader方法)
+
+    # 對LevelDB使用上的影響:
+    # 由於在開發過程中建議會啟用debug mode，server會進行reload的行為，所以若是將leveldb.init()寫在最外層，會發現leveldb.init()被執行
+    # 了兩次，而因為LevelDB是single process，是不允許新增新的process 來init leveldb，所以才會報錯。
+
+    # 解決方式1: 既然啟用debug mode會進行reload，那可以將debug mode設為false，此時將levedb.init()寫在最外層就沒有問題。
+    # 解決方式2: 通常還是建議啟用debug mode，故只要把leveldb.init()的動作與啟用server (app.run)的動作區隔開即可，例如：寫在route內
+    # 解決方式3: 建立資料庫物件寫在@app.before_first_request，並在外宣告一個全域變數
     app.run(debug=True, port=8080)  # run
