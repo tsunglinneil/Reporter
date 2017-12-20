@@ -18,4 +18,4 @@
     2. pip3 install -r requirements.txt
     
 * 執行主程式:
-    * python3 Main.py
+    * python3 FlaskNbaRoute.py

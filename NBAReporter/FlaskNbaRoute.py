@@ -140,7 +140,7 @@ def player(filename):
     return send_from_directory(directory=path, filename=filename)
 
 
-def start():
+if __name__ == "__main__":
     Bootstrap(app)   # using flask bootstrap
     # 針對Debug設定做說明：
     # debug=True  表示每次有異動python code都會重新reload並攔截發生的錯誤
