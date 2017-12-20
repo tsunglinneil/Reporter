@@ -29,8 +29,16 @@
         </tr>
         <tr>
             <td>
-                <a id="download2" download href="{{ url_for('upload', filename='NBAReporter.mp3') }}" target="_blank">下載MP3檔案(二)</a>
-                <a id="paly" href="{{ url_for('player', filename='NBAReporter.mp3') }}" target="_blank">線上播放MP3</a>
+                <!--
+                    url_for 以下的方式是由於預設的靜態元件都設定在static folder，故若想直接用html href實現下載，
+                    需使用download屬性，並將產生的mp3檔案放在static底下的任何一個folder都可以抓得到
+                -->
+                <a id="download2" download href="{{ url_for('static', filename='Sound/NBAReporter.mp3') }}" target="_blank">下載MP3檔案(二)</a>
+
+                <!--
+                    url_for 以下的方式是發送request請求並使用flask提供的send_from_directory實現下載，url_for('對應route def 名稱', '檔名')
+                -->
+                <a id="play" href="{{ url_for('player_method', filename='NBAReporter.mp3') }}" target="_blank">線上播放MP3</a>
             </td>
         </tr>
     </table>

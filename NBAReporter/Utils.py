@@ -22,7 +22,7 @@ class FileUtils:  # create FileUtils class
     #     self.test2 = test2
 
     folder = "Sound"
-    path = "{}/NBAReporter.mp3".format(folder)
+    path = "static/{}/NBAReporter.mp3".format(folder)
 
     # 檢查並新增資料夾 (由於不需要instance相關變數or物件，所以考慮作為static function)
     def check_and_create(self, folder_name):
@@ -39,7 +39,7 @@ class FileUtils:  # create FileUtils class
 
     # 產生聲音檔(含檢查作業系統) => 其實也可以作為static method，但在此練習class method
     def generate_sound(self, report):
-        self.check_and_create(self.folder)
+        self.check_and_create("static/{}".format(self.folder))
         # print("Data: {}".format(report))
         # get path
         print(os.getcwd())

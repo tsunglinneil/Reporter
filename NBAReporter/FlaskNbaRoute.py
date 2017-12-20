@@ -1,7 +1,6 @@
 # coding=utf-8
 # import class
-# .pyc ==> 編譯好的byte暫存
-# ident
+
 from datetime import datetime
 
 import Reporter
@@ -117,29 +116,16 @@ def download():
     return Response(generate(), mimetype='audio/mp3', headers=headers)
 
 
-# 下載MP3檔案(二) => 依據key取得Report內容，再產生MP3
-@app.route('/upload/<path:filename>', methods=['GET', 'POST'])
-def upload(filename):
-    # 從DB取得此次即時賽事資訊並匯出音檔
-    # print(request.form['time'])
-    # get_report_by_key(request.form['time'])
-
-    # path 說明:
-    # 指定取得目錄中的檔案，由於有建立Python Package，所以需指定回上一層目錄
-    file_path = "../{}/".format(Utils.FileUtils().folder)
-    return send_from_directory(directory=file_path, filename=filename)
-
-
 # 線上播放MP3 => 依據key取得Report內容，再播放MP3
 @app.route('/player/<path:filename>', methods=['GET', 'POST'])
-def player(filename):
+def player_method(filename):
     # 從DB取得此次即時賽事資訊並匯出音檔
     # print(request.form.get('time'))
     # get_report_by_key(request.form['time'])
 
     # path 說明:
     # 指定取得目錄中的檔案，由於有建立Python Package，所以需指定回上一層目錄
-    path = "../{}/".format(Utils.FileUtils().folder)
+    path = "{}".format(Utils.FileUtils.path)
     return send_from_directory(directory=path, filename=filename)
 
 

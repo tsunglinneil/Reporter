@@ -1,6 +1,7 @@
 .idea/*
 nbaDb/
 */Sound
+NBAReporter/static/Sound/
 */__pycache__
 env
 *.iml
