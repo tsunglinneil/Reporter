@@ -13,6 +13,7 @@ setup(
         'bs4',
         'flask>=0.12.2',
         'leveldb',
-        'flask-bootstrap'
+        'flask-bootstrap',
+        'gunicorn'
     ],
 )
