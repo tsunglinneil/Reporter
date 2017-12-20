@@ -1,5 +1,7 @@
 # coding=utf-8
 # import class
+# .pyc ==> 編譯好的byte暫存
+# ident
 from datetime import datetime
 
 import Reporter
@@ -15,15 +17,12 @@ from werkzeug.wrappers import Response, Request
 # datetime strftime() and strptime() : https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
 
 app = Flask(__name__)  # define app using flask
-db = None
 
-# 在執行第一個Request之前預先執行
+
+# 在執行第一個Request之前預先執行（for test)
 @app.before_first_request
 def activate_job():
-    print("activate_job")
-    # 建立或取得資料庫
-    global db  # 若要在函示內取得全域變數必須加上 global
-    db = Leveldbutil.init("nbaDB")
+    print("activate_job Do something")
 
 
 # Flask-Bootstrap test...
@@ -42,7 +41,8 @@ def nba_reporter():
 # 列出NBA即時資訊(爬蟲結果)
 @app.route('/list', methods=['POST'])
 def list_data():
-    global db
+    # 建立或取得資料庫
+    db = Leveldbutil.init("nbaDB")
     # 即時賽事資料來源
     url = "http://sports.ltn.com.tw/nba"
 
@@ -70,7 +70,8 @@ def list_data():
 
 # 從DB取得此次即時賽事資訊並匯出音檔
 def get_report_by_key(key):
-    global db
+    # 建立或取得資料庫
+    db = Leveldbutil.init("nbaDB")
     print("key===> {}".format(key))
 
     try:
@@ -158,7 +159,7 @@ if __name__ == "__main__":
     # 由於在開發過程中建議會啟用debug mode，server會進行reload的行為，所以若是將leveldb.init()寫在最外層，會發現leveldb.init()被執行
     # 了兩次，而因為LevelDB是single process，是不允許新增新的process 來init leveldb，所以才會報錯。
 
-    # 解決方式1: 既然啟用debug mode會進行reload，那可以將debug mode設為false，此時將levedb.init()寫在最外層就沒有問題。
-    # 解決方式2: 通常還是建議啟用debug mode，故只要把leveldb.init()的動作與啟用server (app.run)的動作區隔開即可，例如：寫在route內
-    # 解決方式3: 建立資料庫物件寫在@app.before_first_request，並在外宣告一個全域變數
+    # 解決方式1: 既然啟用debug mode會進行reload，那可以將debug mode設為false，此時將levedb.init()寫在最外層就沒有問題，Production建議debug=False。
+    # 解決方式2: 通常開發還是建議啟用debug mode，故只要把leveldb.init()的動作與啟用server (app.run)的動作區隔開即可，例如：寫在route內
+    # 解決方式3: 資料庫可以宣告成class物件引入
     app.run()  # run
