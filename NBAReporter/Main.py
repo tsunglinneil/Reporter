@@ -1,5 +1,6 @@
 # coding=utf-8
-import FlaskNbaRoute, Leveldbutil
+import FlaskNbaRoute
 
 # ============== Main ==============
-FlaskNbaRoute.start()
+if __name__ == "__main__":
+    FlaskNbaRoute.start()
